@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start:node": "node index.js",
+    "prestart:node": "npm run build",
+    "start:pm2": "npx pm2-runtime index.js",
+    "prestart:pm2": "npm run build",
+    "start:ts": "npx ts-node index.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/express": "^4.17.8",
+    "@types/urijs": "^1.19.13",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "eslint": "^7.12.1",
@@ -31,8 +38,11 @@
   "dependencies": {
     "axios": "^0.21.0",
     "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pinpoint-node-agent": "^0.7.0-rc.0",
-    "prettier": "^2.1.2"
+    "pm2": "^4.5.0",
+    "prettier": "^2.1.2",
+    "urijs": "^1.19.2"
   }
 }
